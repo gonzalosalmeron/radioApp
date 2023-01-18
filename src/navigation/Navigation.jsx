@@ -8,9 +8,20 @@ import theme from '../theme'
 
 const Navigation = () => {
   const Tab = createBottomTabNavigator()
+  const navTheme = {
+    dark: false,
+    colors: {
+      primary: 'rgb(255, 45, 85)',
+      background: '#FFFFFF',
+      card: '#FFFFFF',
+      text: 'rgb(28, 28, 30)',
+      border: 'rgb(199, 199, 204)',
+      notification: 'rgb(255, 69, 58)'
+    }
+  }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navTheme}>
       <Tab.Navigator screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,

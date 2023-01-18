@@ -4,9 +4,10 @@ const theme = {
     defTop: 28
   },
   colors: {
-    navIcon: '#e64229',
+    navIcon: '#1A1A1A',
     screenBg: '#fff',
-    black: '#18181B'
+    black: '#18181B',
+    black80: '#1A1A1A'
   },
   textSize: {
     header: 24

@@ -1,24 +1,25 @@
 import React from 'react'
 import Header from './Partials/Header'
 import { ScrollView, View } from 'react-native'
-import theme from '../../theme'
+import { useFetch } from '../../hooks/useFetch'
 
-const MainScreen = () => (
-  <ScrollView>
-    <View style={{ backgroundColor: theme.colors.screenBg, flex: 1 }}>
-      <Header />
+import RadioBigList from '../../components/RadioBigList'
+import RadioMediumList from '../../components/RadioMediumList'
 
-      <View style={{ height: 200, backgroundColor: 'red' }} />
-      <View style={{ height: 200, backgroundColor: 'green' }} />
-      <View style={{ height: 200, backgroundColor: 'blue' }} />
-      <View style={{ height: 200, backgroundColor: 'yellow' }} />
-      <View style={{ height: 200, backgroundColor: 'red' }} />
-      <View style={{ height: 200, backgroundColor: 'green' }} />
-      <View style={{ height: 200, backgroundColor: 'blue' }} />
-      <View style={{ height: 200, backgroundColor: 'yellow' }} />
+const MainScreen = () => {
+  const { data } = useFetch('https://radio-api.gonzxlodev.workers.dev/es/malaga.json')
 
-    </View>
-  </ScrollView>
-)
+  return (
+    <ScrollView>
+      <View>
+        <Header />
+        <RadioBigList data={data} />
+        <RadioMediumList data={data} title='Lo más escuchado en Málaga' />
+        <RadioMediumList data={data} title='Lo más escuchado en Málaga' />
+        <RadioMediumList data={data} title='Lo más escuchado en Málaga' />
+      </View>
+    </ScrollView>
+  )
+}
 
 export default MainScreen
